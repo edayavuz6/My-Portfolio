@@ -10,7 +10,7 @@ Responsive Design: Fully compatible with mobile and desktop devices.
 
 Performance: Fast and optimized loading times using Vite.
 
-🛠 Tech Stack / Teknoloji Yığını
+🛠 Tech Stack 
 Frontend: React, Tailwind CSS
 
 Tooling: Vite, ESLint
