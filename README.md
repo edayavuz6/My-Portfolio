@@ -21,5 +21,5 @@ Email Design: MJML, HTML/CSS
 
 🌐 Live Demo / Canlı Demo
 
-👉
+👉 https://edayavuz6-portfolio.vercel.app/
 
