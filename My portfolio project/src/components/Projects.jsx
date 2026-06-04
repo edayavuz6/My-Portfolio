@@ -47,7 +47,6 @@ const projects = [
     desc: "A clean, responsive one-page website for a clinical psychology practice. Built with plain HTML, CSS, and JavaScript — no frameworks, no build tools.",
     img: "img/elenor.png",
     link: "https://edayavuz6.github.io/Psychology-Practice-Website/",
-    empty: true,
   },
   {
     title: "My Portfolio Website",
@@ -55,7 +54,6 @@ const projects = [
     desc: "Personal portfolio website built with React and Tailwind CSS..",
     img: "img/portfolio.png",
     link: "https://edayavuz6-portfolio.vercel.app/",
-    empty: true,
   },
   {
     title: "Project Name",
