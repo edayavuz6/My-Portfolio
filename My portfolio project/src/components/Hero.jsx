@@ -2,14 +2,22 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen grid items-center gap-16 pt-28 pb-16 px-16 mx-auto"
+      className="min-h-screen grid items-center gap-12 pt-28 pb-16 px-6 mx-auto lg:px-16"
       style={{
-        gridTemplateColumns: "1fr auto 1fr",
+        gridTemplateColumns: "1fr",
         maxWidth: "1300px",
       }}
     >
-      {/* LEFT */}
-      <div className="fade-up">
+      <style jsx>{`
+        @media (min-width: 1024px) {
+          section {
+            grid-template-columns: 1fr auto 1fr !important;
+            gap: 4rem !important;
+          }
+        }
+      `}</style>
+
+      <div className="fade-up text-center lg:text-left">
         <span
           className="inline-block text-xs font-semibold uppercase tracking-widest text-white rounded-full px-4 py-1.5 mb-6"
           style={{
@@ -23,7 +31,7 @@ export default function Hero() {
 
         <h1
           className="font-display font-bold leading-[1.05] tracking-tight mb-5"
-          style={{ fontSize: "clamp(2.8rem, 5vw, 5rem)", color: "var(--text)" }}
+          style={{ fontSize: "clamp(2.2rem, 5vw, 5rem)", color: "var(--text)" }}
         >
           Frontend
           <br />
@@ -36,7 +44,7 @@ export default function Hero() {
         </h1>
 
         <p
-          className="text-sm leading-relaxed mb-9 font-light max-w-sm"
+          className="text-sm leading-relaxed mb-9 font-light max-w-sm mx-auto lg:mx-0"
           style={{ color: "var(--text-muted)" }}
         >
           I build clean, user-friendly web interfaces with React &amp; Tailwind
@@ -44,7 +52,7 @@ export default function Hero() {
           don't just write code — I engineer solutions.
         </p>
 
-        <div className="flex gap-3 flex-wrap">
+        <div className="flex gap-3 flex-wrap justify-center lg:justify-start">
           <a
             href="#projects"
             className="px-7 py-3 rounded-xl text-sm font-semibold tracking-wide text-white transition-all hover:-translate-y-0.5"
@@ -60,22 +68,13 @@ export default function Hero() {
             href="#contact"
             className="px-7 py-3 rounded-xl text-sm font-medium tracking-wide border transition-all"
             style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--neon-green)";
-              e.currentTarget.style.color = "var(--neon-green)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--border)";
-              e.currentTarget.style.color = "var(--text-muted)";
-            }}
           >
             Get In Touch
           </a>
         </div>
       </div>
 
-      {/* CENTER — avatar */}
-      <div className="fade-up delay-1 flex flex-col items-center">
+      <div className="fade-up delay-1 flex flex-col items-center order-first lg:order-none">
         <div className="avatar-frame">
           <img
             src="img/portfolio pp-.png"
@@ -98,10 +97,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* RIGHT — about card */}
-      <div className="fade-up delay-2">
+      <div className="fade-up delay-2 flex justify-center">
         <div
-          className="rounded-2xl p-8 relative overflow-hidden"
+          className="rounded-2xl p-8 relative overflow-hidden w-full"
           style={{
             background: "var(--surface)",
             border: "1px solid var(--border)",
@@ -109,7 +107,6 @@ export default function Hero() {
             maxWidth: "360px",
           }}
         >
-          {/* gradient top border */}
           <div
             className="absolute top-0 left-0 right-0 h-0.5"
             style={{
@@ -149,14 +146,13 @@ export default function Hero() {
             style={{ color: "var(--text-muted)" }}
           >
             Hi! I'm Eda. My hunger for growth and innovative perspective always
-            bring a fresh touch to my projects. If you're looking for a modern,
-            aesthetic, and functional partner — you're in the right place. Let's
-            build something great together!
+            bring a fresh touch to my projects. Let's build something great
+            together!
           </p>
 
           <div
-            className="flex gap-6 pt-4"
-            style={{ borderTop: "1px solid var(--border)" }}
+            className="flex gap-6 pt-4 border-t"
+            style={{ borderColor: "var(--border)" }}
           >
             {[
               ["10+", "Projects"],
@@ -164,7 +160,7 @@ export default function Hero() {
               ["1+", "Years Exp."],
             ].map(([n, l]) => (
               <div key={l}>
-                <div className="font-display text-3xl font-bold leading-none grad-text">
+                <div className="font-display text-2xl font-bold leading-none grad-text">
                   {n}
                 </div>
                 <div

@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[var(--bg)] transition-colors duration-300 w-full overflow-x-hidden">
-      {/* max-w-7xl ve mx-auto siteni ortalar */}
+      {}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Navbar dark={dark} setDark={setDark} />
         <main>
