@@ -1,11 +1,3 @@
-<div align="center">
-
-<br />
-
-<img src="public/img/portfolio.png" alt="Eda Yavuz Portfolio" width="100%" style="border-radius:12px" />
-
-<br />
-<br />
 
 # ⚡ Eda Yavuz — Developer Portfolio
 
@@ -143,43 +135,6 @@ portfolio/
 ├── package.json
 └── README.md
 ```
-
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/edayavuz6/portfolio.git
-cd portfolio
-
-# 2. Install dependencies
-npm install
-
-# 3. Install Framer Motion
-npm install framer-motion
-
-# 4. Install Tailwind CSS Vite plugin (Tailwind v4)
-npm install @tailwindcss/vite
-
-# 5. Start the development server
-npm run dev
-```
-
-### Typography
-
-- **Display / Headings** — [Syne](https://fonts.google.com/specimen/Syne) — weight 600–800
-- **Body / UI** — [Inter](https://fonts.google.com/specimen/Inter) — weight 300–700
-
-### Gradient System
-
-```css
-/* Primary — used on CTAs, badges, logo */
-linear-gradient(135deg, #8b5cf6, #ec4899)
-
-/* Secondary — used on skill highlights */
-linear-gradient(135deg, #06b6d4, #8b5cf6)
-```
-
----
 
 ## 🗺️ Roadmap
 
