@@ -1,46 +1,46 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function App() {
-  const [dark, setDark] = useState(
-    () => localStorage.getItem("theme") === "dark",
-  );
+  const [dark, setDark] = useState(() => {
+    const saved = localStorage.getItem("portfolio-theme");
+    return saved ? saved === "dark" : true;
+  });
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-    localStorage.setItem("theme", dark ? "dark" : "light");
+    localStorage.setItem("portfolio-theme", dark ? "dark" : "light");
+    document.body.style.background = dark ? "#060608" : "#fafafa";
+    document.body.style.color = dark ? "#edecf0" : "#0a0a0a";
   }, [dark]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible");
-        }),
-      { threshold: 0.12 },
-    );
-    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+  const toggleDark = () => setDark((prev) => !prev);
 
   return (
-    <div className="min-h-screen bg-[var(--bg)] transition-colors duration-300 w-full overflow-x-hidden">
-      {}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Navbar dark={dark} setDark={setDark} />
-        <main>
-          <Hero />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+    <div
+      className={dark ? "theme-dark" : "theme-light"}
+      style={{
+        background: "var(--bg)",
+        color: "var(--text)",
+        minHeight: "100vh",
+        overflowX: "hidden",
+        transition: "background 0.4s ease, color 0.4s ease",
+      }}
+    >
+      <Navbar dark={dark} toggleDark={toggleDark} />
+      <main>
+        <Hero dark={dark} />
+        <About dark={dark} />
+        <Skills dark={dark} />
+        <Projects dark={dark} />
+        <Contact dark={dark} />
+      </main>
+      <Footer dark={dark} />
     </div>
   );
 }

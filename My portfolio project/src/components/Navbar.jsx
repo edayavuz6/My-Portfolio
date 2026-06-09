@@ -1,53 +1,178 @@
-export default function Navbar({ dark, setDark }) {
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
+const links = ["Home", "About", "Skills", "Projects", "Contact"];
+
+export default function Navbar({ dark, toggleDark }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("Home");
+
+  useEffect(() => {
+    const h = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", h);
+    return () => window.removeEventListener("scroll", h);
+  }, []);
+
+  const navBg = scrolled
+    ? dark
+      ? "rgba(6,6,8,0.88)"
+      : "rgba(250,250,252,0.88)"
+    : "transparent";
+  const borderC = scrolled
+    ? dark
+      ? "rgba(255,255,255,0.06)"
+      : "rgba(0,0,0,0.06)"
+    : "transparent";
+  const textColor = dark ? "rgba(237,236,240,0.45)" : "rgba(10,10,10,0.45)";
+  const activeColor = dark ? "#ffffff" : "#0a0a0a";
+  const activeBg = dark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)";
+  const hoverColor = dark ? "#ffffff" : "#0a0a0a";
+
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-16 py-4 border-b"
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       style={{
-        background: dark ? "rgba(13,11,26,0.88)" : "rgba(248,246,255,0.88)",
-        backdropFilter: "blur(20px)",
-        borderColor: "var(--border)",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 100,
+        height: "64px",
+        display: "flex",
+        alignItems: "center",
+        padding: "0 48px",
+        background: navBg,
+        backdropFilter: scrolled ? "blur(24px)" : "none",
+        borderBottom: `1px solid ${borderC}`,
+        transition: "all 0.4s ease",
       }}
     >
-      <div
-        className="font-display text-2xl font-bold italic"
-        style={{ color: "var(--text)" }}
+      <motion.div
+        whileHover={{ scale: 1.04 }}
+        style={{ cursor: "pointer", flexShrink: 0 }}
       >
-        edadev<span style={{ color: "var(--neon-pink)" }}>.</span>
-      </div>
+        <span
+          className="font-cal"
+          style={{
+            fontSize: "18px",
+            fontWeight: 700,
+            letterSpacing: "-0.02em",
+            color: dark ? "#edecf0" : "#0a0a0a",
+          }}
+        >
+          eda
+          <span
+            style={{
+              background: "linear-gradient(135deg,#8b5cf6,#ec4899)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            dev
+          </span>
+        </span>
+      </motion.div>
 
-      <ul className="hidden md:flex gap-10 list-none">
-        {["Home", "Skills", "Projects", "Contact"].map((item) => (
-          <li key={item}>
-            <a
-              href={`#${item.toLowerCase()}`}
-              className="text-xs font-medium uppercase tracking-widest relative group"
-              style={{ color: "var(--text-muted)" }}
+      <ul
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "2px",
+          listStyle: "none",
+          margin: "0 auto",
+        }}
+      >
+        {links.map((link) => (
+          <li key={link}>
+            <motion.a
+              href={`#${link.toLowerCase()}`}
+              onClick={() => setActive(link)}
+              whileHover={{ y: -1 }}
+              style={{
+                display: "block",
+                padding: "6px 14px",
+                borderRadius: "8px",
+                fontSize: "13px",
+                fontWeight: 500,
+                letterSpacing: "0.01em",
+                color: active === link ? activeColor : textColor,
+                background: active === link ? activeBg : "transparent",
+                transition: "color 0.2s, background 0.2s",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = hoverColor;
+                if (active !== link)
+                  e.currentTarget.style.background = dark
+                    ? "rgba(255,255,255,0.04)"
+                    : "rgba(0,0,0,0.04)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color =
+                  active === link ? activeColor : textColor;
+                if (active !== link)
+                  e.currentTarget.style.background = "transparent";
+              }}
             >
-              {item}
-              <span
-                className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-right group-hover:origin-left"
-                style={{
-                  background:
-                    "linear-gradient(90deg, var(--neon-purple), var(--neon-pink))",
-                }}
-              />
-            </a>
+              {link}
+            </motion.a>
           </li>
         ))}
       </ul>
 
-      <button
-        onClick={() => setDark(!dark)}
-        className="w-10 h-10 rounded-full flex items-center justify-center border text-base transition-all"
+      <div
         style={{
-          borderColor: "var(--border)",
-          background: "var(--surface)",
-          color: "var(--text-muted)",
+          display: "flex",
+          gap: "10px",
+          alignItems: "center",
+          flexShrink: 0,
         }}
-        aria-label="Toggle theme"
       >
-        {dark ? "☀" : "☾"}
-      </button>
-    </nav>
+        <motion.button
+          onClick={toggleDark}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.92 }}
+          title={dark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          style={{
+            width: "38px",
+            height: "38px",
+            borderRadius: "10px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: dark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)",
+            border: dark
+              ? "1px solid rgba(255,255,255,0.1)"
+              : "1px solid rgba(0,0,0,0.08)",
+            cursor: "pointer",
+            fontSize: "17px",
+            transition: "all 0.2s",
+          }}
+        >
+          {dark ? "☀️" : "🌙"}
+        </motion.button>
+
+        <motion.a
+          href="mailto:edayavuzcontact@gmail.com"
+          whileHover={{ scale: 1.03, y: -1 }}
+          whileTap={{ scale: 0.97 }}
+          style={{
+            padding: "8px 18px",
+            borderRadius: "10px",
+            fontSize: "13px",
+            fontWeight: 600,
+            background: "linear-gradient(135deg,#8b5cf6,#ec4899)",
+            color: "white",
+            boxShadow: "0 4px 16px rgba(139,92,246,0.35)",
+            cursor: "pointer",
+            display: "inline-block",
+          }}
+        >
+          Hire Me
+        </motion.a>
+      </div>
+    </motion.nav>
   );
 }
