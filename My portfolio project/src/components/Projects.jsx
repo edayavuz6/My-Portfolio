@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence, color } from "framer-motion";
 
 const projects = [
   {
@@ -71,7 +71,7 @@ const projects = [
     link: "https://edayavuz6.github.io/Psychology-Practice-Website/",
     github: "https://github.com/edayavuz6/Psychology-Practice-Website",
     color: "#10b981",
-    featured: false,
+    featured: true,
   },
   {
     title: "My Portfolio Website",
@@ -81,6 +81,16 @@ const projects = [
     link: "https://edayavuz6-portfolio.vercel.app/",
     github: "https://github.com/edayavuz6",
     color: "#8b5cf6",
+    featured: true,
+  },
+  {
+    title: "NEXUS - Premium Technology Marketplace",
+    tags: ["React", "Tailwind CSS"],
+    desc: "A production-ready, full-featured e-commerce web application built with React & Vite. Inspired by the design philosophy of Apple, Nothing, and modern SaaS platforms.",
+    img: "img/nexus.png",
+    link: "https://nexus-marketplace-3mhd.vercel.app/",
+    github: "https://github.com/edayavuz6/nexus-marketplace",
+    color: "#f59e0b",
     featured: true,
   },
 ];
