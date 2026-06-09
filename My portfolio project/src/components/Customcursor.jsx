@@ -83,8 +83,6 @@ export default function CustomCursor({ dark }) {
           borderRadius: "50%",
           background: "rgba(139,92,246,0.12)",
           border: "1px solid rgba(139,92,246,0.3)",
-          zIndex: 9997,
-          pointerEvents: "none",
         }}
       />
     </>
