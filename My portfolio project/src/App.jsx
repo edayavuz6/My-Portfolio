@@ -6,6 +6,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   const [dark, setDark] = useState(() => {
@@ -30,8 +31,11 @@ export default function App() {
         minHeight: "100vh",
         overflowX: "hidden",
         transition: "background 0.4s ease, color 0.4s ease",
+        cursor: "none",
       }}
     >
+      <CustomCursor dark={dark} />
+
       <Navbar dark={dark} toggleDark={toggleDark} />
       <main>
         <Hero dark={dark} />
