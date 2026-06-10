@@ -11,22 +11,22 @@ const stats = [
 
 const timeline = [
   {
-    year: "2023",
+    year: "1",
     title: "Started Frontend Journey",
     desc: "Fell in love with HTML, CSS, and JavaScript. Built my first projects from scratch.",
   },
   {
-    year: "2024",
+    year: "2",
     title: "React & Modern Stack",
     desc: "Mastered React, Tailwind CSS, and started building full-featured web applications.",
   },
   {
-    year: "2024",
+    year: "3",
     title: "Email Development",
     desc: "Specialized in MJML & HTML email templates — pixel-perfect across all email clients.",
   },
   {
-    year: "2025",
+    year: "4",
     title: "Freelance & Open Source",
     desc: "Delivering production-ready projects for clients and contributing to the dev community.",
   },
