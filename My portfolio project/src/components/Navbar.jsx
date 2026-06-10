@@ -153,25 +153,6 @@ export default function Navbar({ dark, toggleDark }) {
         >
           {dark ? "☀️" : "🌙"}
         </motion.button>
-
-        <motion.a
-          href="mailto:edayavuzcontact@gmail.com"
-          whileHover={{ scale: 1.03, y: -1 }}
-          whileTap={{ scale: 0.97 }}
-          style={{
-            padding: "8px 18px",
-            borderRadius: "10px",
-            fontSize: "13px",
-            fontWeight: 600,
-            background: "linear-gradient(135deg,#8b5cf6,#ec4899)",
-            color: "white",
-            boxShadow: "0 4px 16px rgba(139,92,246,0.35)",
-            cursor: "pointer",
-            display: "inline-block",
-          }}
-        >
-          Hire Me
-        </motion.a>
       </div>
     </motion.nav>
   );
