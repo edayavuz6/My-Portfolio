@@ -78,7 +78,7 @@ const projects = [
     tags: ["React", "Tailwind CSS", "Framer Motion"],
     desc: "This very portfolio — built with React, Tailwind CSS, and Framer Motion. Premium animations, dark/light mode, and fully responsive layout.",
     img: "img/newp.png",
-    link: "https://my-portfolio-sage-ten-29.vercel.app/",
+    link: "https://edayavuz-portfolio.vercel.app/",
     github: "https://github.com/edayavuz6/My-Portfolio",
     color: "#8b5cf6",
     featured: true,
