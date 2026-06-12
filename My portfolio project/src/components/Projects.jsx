@@ -97,6 +97,7 @@ const projects = [
     title: "TaskFlow ⚡ - Modern Landing Page",
     tags: ["React", "Tailwind CSS"],
     desc: "TaskFlow is a modern, high-performance, and visually stunning landing page for a next-generation project management platform.",
+    img: "img/landing.png",
     link: "https://landing-page-project-mu.vercel.app/",
     github: "https://github.com/edayavuz6/Landing-Page-Project",
     color: "#8b5cf6",
