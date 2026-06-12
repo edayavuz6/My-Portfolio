@@ -89,7 +89,7 @@ const projects = [
     desc: "A production-ready, full-featured e-commerce web application built with React & Vite. Inspired by the design philosophy of Apple, Nothing, and modern SaaS platforms.",
     img: "img/nexus.png",
     link: "https://nexus-marketplace-3mhd.vercel.app/",
-    github: "https://nexus-marketplace-cyan.vercel.app",
+    github: "https://github.com/edayavuz6/nexus-marketplace",
     color: "#f59e0b",
     featured: true,
   },
